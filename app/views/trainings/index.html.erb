@@ -27,6 +27,12 @@
 <br>
 <%= link_to 'New Training', new_training_path %>
 
-<%= month_calendar do |date| %>
+<%= month_calendar events: @trainings do |date, trainings| %>
   <%= date %>
+
+  <% trainings.each do |training| %>
+    <div>
+      <%= training.name %>
+    </div>
+  <% end %>
 <% end %>
