@@ -28,10 +28,11 @@
 <%= link_to 'New Training', new_training_path %>
 
 <%= month_calendar events: @trainings do |date, trainings| %>
-  <%= date %>
+<%# raise %>
+  <%= date.strftime('%d').gsub(/^0/, '') %>
 
   <% trainings.each do |training| %>
-    <div>
+    <div class="training-name">
       <%= training.name %>
     </div>
   <% end %>

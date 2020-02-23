@@ -3,3 +3,14 @@
 <%= render 'form', training: @training %>
 
 <%= link_to 'Back', trainings_path %>
+
+<%= month_calendar events: @trainings do |date, trainings| %>
+<%# raise %>
+  <%= date.strftime('%d').gsub(/^0/, '') %>
+
+  <% trainings.each do |training| %>
+    <div class="training-name">
+      <%= training.name %>
+    </div>
+  <% end %>
+<% end %>
